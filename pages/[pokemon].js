@@ -1,14 +1,24 @@
 import Link from "next/link";
+import styles from "../styles/PokemonDetail.module.css";
 
 export default function PokemonDetail({pokemonData, image}) {
   return (
     <>
-      <Link href="/">
-        <a>Back</a>
-      </Link>
-      <img src={image} alt={pokemonData.name} />
-      <h1>{pokemonData.name}</h1>
-      {pokemonData.types.map((type, index) => <p key={index}>{type.type.name} type</p>)}
+      <div className={styles.container}>
+        <Link href="/">
+          <a><img src="/left-arrow.svg" className="left-arrow" /></a>
+        </Link>
+        <main className={styles.main}>
+          <h1 className={styles.title}>{pokemonData.name.replace(/-/g, ' ')}</h1>
+          <div className={styles.types}>
+            {pokemonData.types.map((type, index) => <span className={styles.tag} key={index}>{type.type.name}</span>)}
+          </div>
+          <div className={styles.pokemonImage}>
+            <img className={styles.pokemon} src={image} alt={pokemonData.name} />
+            <div className={styles.titleBG}>{pokemonData.name.replace(/-/g, ' ')}</div>
+          </div>
+        </main>
+      </div>
     </>
   )
 }

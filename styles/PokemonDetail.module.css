@@ -48,6 +48,19 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  font-style: italic;
+}
+
+.titleBG {
+  position: absolute;
+  font-size: 20rem;
+  color: rgb(233 30 99 / 12%);
+  font-style: italic;
+  font-weight: bold;
+  text-transform: capitalize;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
 }
 
 .title,
@@ -58,6 +71,22 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+.types {
+  margin-top: 1rem;
+}
+
+.tag {
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(156, 39, 176, 0.7);
+    border: solid 1px #9c27b0;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .code {
@@ -77,7 +106,6 @@
   position: relative;
   max-width: 1000px;
   margin-top: 3rem;
-  overflow: unset !important;
 }
 
 .card {
@@ -115,6 +143,18 @@
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.pokemonImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1rem;
+}
+
+.pokemon {
+  width: 100%;
+  z-index: 500;
 }
 
 .logo {
