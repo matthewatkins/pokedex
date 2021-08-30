@@ -9,11 +9,11 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: clamp(5rem, 16vw, 10rem) 0 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -45,16 +45,24 @@
 }
 
 .title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
   font-style: italic;
 }
 
+.title span {
+  font-size: 0.5em;
+  color: rgba(233, 30, 99, 0.5);
+}
+
 .titleBG {
   position: absolute;
   font-size: 20rem;
-  color: rgb(233 30 99 / 12%);
+  color: rgba(233, 30, 99, 0.12);
   font-style: italic;
   font-weight: bold;
   text-transform: capitalize;

@@ -9,7 +9,7 @@ export default function PokemonDetail({pokemonData, image}) {
           <a><img src="/left-arrow.svg" className="left-arrow" /></a>
         </Link>
         <main className={styles.main}>
-          <h1 className={styles.title}>{pokemonData.name.replace(/-/g, ' ')}</h1>
+          <h1 className={styles.title}><span className={styles.hashtag}>#{('00' + pokemonData.id).slice(-3)}</span>{pokemonData.name.replace(/-/g, ' ')}</h1>
           <div className={styles.types}>
             {pokemonData.types.map((type, index) => <span className={styles.tag} key={index}>{type.type.name}</span>)}
           </div>
@@ -29,8 +29,7 @@ export async function getServerSideProps(context) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
   const pokemonData = await res.json();
 
-  const paddedId = ('00' + pokemonData.id).slice(-3);
-  const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${paddedId}.png`;
+  const image = `https://ik.imagekit.io/n7nxxqwkxic/pokemons/${pokemonData.name}.png`;
 
   return { props: { pokemonData, image } };
 }

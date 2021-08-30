@@ -51,7 +51,7 @@ export default function Home({pokemons}) {
           {allPokemon.map((pokemon, index) => (
             <Link href="/[pokemon]" as={`/${pokemon.name}`} key={index}>
               <a className={styles.card}>
-                {index <= 897 && <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${('00' + (index + 1)).slice(-3)}.png`} alt={pokemon.name} />}
+                {index <= 897 && <img src={`https://ik.imagekit.io/n7nxxqwkxic/pokemons/tr:w-200/${pokemon.name}.png`} alt={pokemon.name} />}
                 <p className={styles.title} style={{textTransform: 'capitalize'}}>{pokemon.name.replace(/-/g, ' ')}</p>
               </a>
             </Link>
@@ -73,9 +73,6 @@ export async function getStaticProps() {
   const { results } = await res.json();
 
   const pokemons = results.map((pokemon, index) => {
-    // const paddedId = ('00' + (index + 1)).slice(-3);
-
-    // const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedId}.png`;
     return { ...pokemon };
   });
 
