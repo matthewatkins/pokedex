@@ -6,10 +6,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 h1 {
   text-transform: capitalize;
   color: #909090

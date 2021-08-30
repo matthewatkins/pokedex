@@ -23,7 +23,7 @@ export default function Home({pokemons}) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.hasBG}`}>
       <Head>
         <title>Junemon</title>
         <meta name="description" content="Pokedex app" />
@@ -31,9 +31,9 @@ export default function Home({pokemons}) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Junémon
-        </h1>
+        </h1> */}
 
         {/* <p className={styles.description}>
           <input type="text" name="search" id="search" />

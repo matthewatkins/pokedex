@@ -8,6 +8,19 @@
   height: 100vh;
 }
 
+.container.hasBG::before {
+  content: '';
+  position: absolute;
+  right: -147px;
+  top: -177px;
+  height: 572px;
+  width: 572px;
+  background-image: url('../public/pokeball-flat.svg');
+  background-repeat: no-repeat;
+  transform: rotate(-120deg);
+  opacity: 0.5;
+}
+
 .main {
   padding: clamp(5rem, 16vw, 10rem) 0 5rem 0;
   flex: 1;
@@ -85,6 +98,7 @@
   padding: 1.5rem;
   text-align: left;
   color: inherit;
+  background-color: #ffffff;
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;

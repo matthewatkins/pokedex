@@ -1,9 +1,14 @@
+import Head from 'next/head';
 import Link from "next/link";
 import styles from "../styles/PokemonDetail.module.css";
 
 export default function PokemonDetail({pokemonData, image}) {
   return (
     <>
+      <Head>
+        <title>{pokemonData.name.replace(/-/g, ' ')} - Junedex</title>
+      </Head>
+
       <div className={styles.container}>
         <Link href="/">
           <a><img src="/left-arrow.svg" className="left-arrow" /></a>
