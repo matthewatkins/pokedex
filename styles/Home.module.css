@@ -11,13 +11,14 @@
 .container.hasBG::before {
   content: '';
   position: absolute;
-  right: -147px;
-  top: -177px;
-  height: 572px;
-  width: 572px;
+  right: 0;
+  top: 0;
+  height: 388px;
+  width: 447px;
   background-image: url('../public/pokeball-flat.svg');
   background-repeat: no-repeat;
-  transform: rotate(-120deg);
+  background-position: 39px -154px;
+  overflow: hidden;
   opacity: 0.5;
 }
 
