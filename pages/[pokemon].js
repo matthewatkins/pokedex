@@ -40,7 +40,7 @@ export default function PokemonDetail({ pokemonData, pokemonSpeciesData, image }
               {pokemonData.types.map((type, index) => <div className={styles.tag} key={index}>{type.type.name}</div>)}
             </div>
 
-            <p>{pokemonSpeciesData.flavor_text_entries[10].flavor_text}</p>
+            <p>{pokemonSpeciesData.flavor_text_entries[10] ? pokemonSpeciesData.flavor_text_entries[10].flavor_text : pokemonSpeciesData.flavor_text_entries[0].flavor_text}</p>
             <h3>Abilities</h3>
             {pokemonData.abilities.map((ability, index) => {
               return !ability.is_hidden && <p className={styles.ability} key={index}>{ability.ability.name}</p>

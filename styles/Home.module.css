@@ -20,15 +20,19 @@
   background-position: 39px -154px;
   overflow: hidden;
   opacity: 0.5;
+  z-index: 0;
 }
 
 .main {
+  width: 100%;
+  max-width: 930px;
   padding: clamp(5rem, 16vw, 10rem) 0 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  z-index: 1;
 }
 
 .footer {
@@ -70,6 +74,8 @@
 }
 
 .description {
+  width: 100%;
+  padding: 0 1.5rem;
   line-height: 1.5;
   font-size: 1.5rem;
 }
@@ -154,6 +160,22 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.search {
+  width: 100%;
+  padding: 1em;
+  font-size: 1.25rem;
+  background-color: #ffffff;
+  border: solid 1px #eaeaea;
+  border-radius: 40px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.search:hover,
+.search:focus {
+  border-color: #e91e63;
 }
 
 .endMessage {
