@@ -120,7 +120,15 @@
 .card img {
   max-width: 200px;
   transform: translateX(10px);
+  transition: transform 0.15s ease;
 }
+
+.card:hover img,
+.card:focus img,
+.card:active img {
+  transform: translate(20px, -20px);
+}
+
 .card h2 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
@@ -133,13 +141,14 @@
   font-weight: bold;
   color: #393939;
   line-height: 1.5;
-  transition: color 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .card:hover p,
 .card:focus p,
 .card:active p {
   color: #e91e63;
+  transform: translateX(-20px);
 }
 
 .logo {
