@@ -20,6 +20,7 @@
   background-position: 39px -154px;
   overflow: hidden;
   opacity: 0.5;
+  z-index: 0;
 }
 
 .main {
@@ -31,6 +32,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  z-index: 1;
 }
 
 .footer {
@@ -164,6 +166,7 @@
   width: 100%;
   padding: 1em;
   font-size: 1.25rem;
+  background-color: #ffffff;
   border: solid 1px #eaeaea;
   border-radius: 40px;
   outline: none;
