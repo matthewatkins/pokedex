@@ -27,7 +27,7 @@ export default function Home({pokemons}) {
 
   // search
   // const [searchAPI, setSearchAPI] = useState(false);
-  const [searchedPokemon, setSearchedPokemon] = useState([]);
+  // const [searchedPokemon, setSearchedPokemon] = useState([]);
   // console.log(searchedPokemon);
 
   // const searchForPokemon = debounce(async (search) => {
@@ -61,13 +61,13 @@ export default function Home({pokemons}) {
     // }
   }, []);
 
-  useEffect(() => {
-    if(searchedPokemon) {
-      setAllPokemon(prev => [...prev, searchedPokemon]);
-    } else {
-      setAllPokemon(pokemons);
-    }
-  }, [searchedPokemon]);
+  // useEffect(() => {
+  //   if(searchedPokemon) {
+  //     setAllPokemon(prev => [...prev, searchedPokemon]);
+  //   } else {
+  //     setAllPokemon(pokemons);
+  //   }
+  // }, [searchedPokemon]);
 
   return (
     <div className={`${styles.container} ${styles.hasBG}`}>
@@ -96,10 +96,11 @@ export default function Home({pokemons}) {
                 <Link href="/[pokemon]" as={`/${pokemon.name}`} key={index}>
                   <a className={styles.card}>
                     {index <= 897 && <img src={`https://ik.imagekit.io/n7nxxqwkxic/pokemons/tr:w-200/${pokemon.name}.png`} alt={pokemon.name} />}
-                    <p className={styles.title} style={{textTransform: 'capitalize'}}>{pokemon.name?.replace(/-/g, ' ')}</p>
+                    <p className={styles.title} style={{ textTransform: 'capitalize' }}>{pokemon.name?.replace(/-/g, ' ')}</p>
                   </a>
                 </Link>
-          ))}
+              )
+            )}
           {/* </InfiniteScroll> */}
           </div>
       </main>
