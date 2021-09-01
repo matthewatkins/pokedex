@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect } from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
 import debounce from 'lodash.debounce';
+import { IKContext, IKImage } from 'imagekitio-react'
+
 import Link from 'next/link';
 import Head from 'next/head'
 import { PokeSpinner } from '../components/pokeSpinner';
@@ -72,7 +74,7 @@ export default function Home({pokemons}) {
   return (
     <div className={`${styles.container} ${styles.hasBG}`}>
       <Head>
-        <title>Junemon</title>
+        <title>Junedex</title>
         <meta name="description" content="Pokedex app" />
       </Head>
 
@@ -90,17 +92,30 @@ export default function Home({pokemons}) {
           endMessage={<span className={styles.endMessage}>No more Pokemon!</span>}
           className={styles.grid}
         > */}
+          <IKContext urlEndpoint="https://ik.imagekit.io/n7nxxqwkxic">
             {allPokemon
               .filter(pokemon => pokemon.name?.toLowerCase().includes(search.toLowerCase()))
               .map((pokemon, index) => (
                 <Link href="/[pokemon]" as={`/${pokemon.name}`} key={index}>
                   <a className={styles.card}>
-                    {index <= 897 && <img src={`https://ik.imagekit.io/n7nxxqwkxic/pokemons/tr:w-200/${pokemon.name}.png`} alt={pokemon.name} />}
+                    {/* {index <= 897 && <img src={`https://ik.imagekit.io/n7nxxqwkxic/pokemons/tr:w-200/${pokemon.name}.png`} alt={pokemon.name} />} */}
+                    {index <= 897 && (
+                      <IKImage
+                        path={`/pokemons/${pokemon.name}.png`}
+                        transformation={[{height:200,width:200}]}
+                        lqip={{active:true}}
+                        loading="lazy"
+                        height="200"
+                        width="200"
+                        alt={pokemon.name}
+                      />
+                    )}
                     <p className={styles.title} style={{ textTransform: 'capitalize' }}>{pokemon.name?.replace(/-/g, ' ')}</p>
                   </a>
                 </Link>
               )
             )}
+          </IKContext>
           {/* </InfiniteScroll> */}
           </div>
       </main>

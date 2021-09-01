@@ -1,3 +1,4 @@
+import { IKContext, IKImage } from 'imagekitio-react'
 import Head from 'next/head';
 import Link from "next/link";
 import { dmToFt, hgToLbs } from '../utils/conversions';
@@ -12,6 +13,7 @@ export default function PokemonDetail({ pokemonData, pokemonSpeciesData, image }
     <>
       <Head>
         <title>{pokemonData.name.replace(/-/g, ' ')} - Junedex</title>
+        <meta name="description" content={enName} />
       </Head>
 
       <div className={styles.container}>
@@ -26,7 +28,19 @@ export default function PokemonDetail({ pokemonData, pokemonSpeciesData, image }
           </div> */}
 
           <div className={styles.pokemonImage}>
-            <img className={styles.pokemon} src={image} alt={pokemonData.name} />
+            <IKContext urlEndpoint="https://ik.imagekit.io/n7nxxqwkxic">
+              {/* <img className={styles.pokemon} src={image} alt={pokemonData.name} /> */}
+              <IKImage
+                path={`/pokemons/${pokemonData.name}.png`}
+                // transformation={[{height:200,width:200}]}
+                lqip={{active:true}}
+                loading="lazy"
+                height="475"
+                width="475"
+                className={styles.pokemon}
+                alt={`Large ${enName} Pokemon image`}
+              />
+            </IKContext>
             <div className={styles.titleBG}>{jName}</div>
           </div>
 
