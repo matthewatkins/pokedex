@@ -58,6 +58,10 @@
   font-style: italic;
 }
 
+@media screen and (max-width: 600px) {
+  .title { font-size: clamp(1rem, 10vw, 4rem); }
+}
+
 .title span {
   font-size: 0.5em;
   color: rgba(233, 30, 99, 0.5);
@@ -65,7 +69,8 @@
 
 .titleBG {
   position: absolute;
-  font-size: 20rem;
+  /* font-size: 20rem; */
+  font-size: clamp(10rem, 50vw, 20rem);
   color: rgba(233, 30, 99, 0.12);
   font-style: italic;
   font-weight: bold;
@@ -128,6 +133,11 @@
   box-shadow: rgba(103, 58, 183, 0.8) 0px 30px 60px -12px, rgba(103, 58, 183, 0.2) 0px 18px 36px -18px;
   transform: translateY(-125px);
   z-index: 2;
+
+}
+
+@media screen and (max-width: 600px) {
+  .card { transform: translateY(-20vw); }
 }
 
 .card img {
@@ -152,8 +162,9 @@
   padding: 2rem;
 }
 
-.pokemon {
+.pokemonImage .pokemon {
   width: 100%;
+  height: auto;
   z-index: 500;
 }
 
