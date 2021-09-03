@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import InfiniteScroll from "react-infinite-scroll-component";
 import debounce from 'lodash.debounce';
 import { IKContext, IKImage } from 'imagekitio-react'
+import { motion } from 'framer-motion';
 
 import Link from 'next/link';
 import Head from 'next/head'
@@ -97,7 +98,21 @@ export default function Home({pokemons}) {
               .filter(pokemon => pokemon.name?.toLowerCase().includes(search.toLowerCase()))
               .map((pokemon, index) => (
                 <Link href="/[pokemon]" as={`/${pokemon.name}`} key={index}>
-                  <a className={styles.card}>
+                  <motion.a
+                    className={styles.card}
+                    initial={{
+                      opacity: 0,
+                      translateY: 100,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      translateY: 0,
+                    }}
+                    transition={{
+                      duration: 0.06,
+                      delay: index * 0.06,
+                    }}
+                  >
                     {/* {index <= 897 && <img src={`https://ik.imagekit.io/n7nxxqwkxic/pokemons/tr:w-200/${pokemon.name}.png`} alt={pokemon.name} />} */}
                     {index <= 897 && (
                       <IKImage
@@ -111,7 +126,7 @@ export default function Home({pokemons}) {
                       />
                     )}
                     <p className={styles.title} style={{ textTransform: 'capitalize' }}>{pokemon.name?.replace(/-/g, ' ')}</p>
-                  </a>
+                  </motion.a>
                 </Link>
               )
             )}

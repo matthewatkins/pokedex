@@ -120,7 +120,8 @@
   /* border-color: #e91e63; */
   /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
   box-shadow: rgba(103, 58, 183, 0.8) 0px 30px 60px -12px, rgba(103, 58, 183, 0.2) 0px 18px 36px -18px;
-  transform: translateY(-5px);
+  transform: translateY(-10px) !important; /* important to override a transform none set by framer motion */
+  cursor: pointer;
 }
 
 .card img {
